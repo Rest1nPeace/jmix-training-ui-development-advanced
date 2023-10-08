@@ -46,15 +46,13 @@ public class UserBrowse extends StandardLookup<User> {
     private Notifications notifications;
     @Autowired
     private BackgroundWorker backgroundWorker;
-    @Autowired
-    private NotificationFacet notification;
-
+//    @Autowired
+//    private NotificationFacet notification;
+//
 //    @Subscribe
 //    public void onAfterShow(final AfterShowEvent event) {
 //        notification.show();
 //    }
-
-
 
 //    @Subscribe("usersTable.sendEmail")
 //    public void onUsersTableSendEmail(final Action.ActionPerformedEvent event) {
@@ -92,8 +90,9 @@ public class UserBrowse extends StandardLookup<User> {
 //                .show();
 //    }
 
+
     @Subscribe("inputDialog")
-    public void onInputDialogInputDialogClose(final InputDialog.InputDialogCloseEvent closeEvent) {
+    public void onInputDialogInputDialogClose(InputDialog.InputDialogCloseEvent closeEvent) {
         if (closeEvent.closedWith(DialogOutcome.OK)) {
             String title = closeEvent.getValue("title");
             String body = closeEvent.getValue("body");
@@ -130,6 +129,7 @@ public class UserBrowse extends StandardLookup<User> {
 //                .withCancelAllowed(true)
 //                .show();
     }
+
 
     private class EmailTask extends BackgroundTask<Integer, Void> {
 
